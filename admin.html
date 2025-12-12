@@ -1,0 +1,29 @@
+Placeholder for admin.html
+<script>
+function sendToBothWhatsApp() {
+    const owner = "7002337201";
+    const manager = "6901596956";
+    const text = encodeURIComponent("Hello Choudhury Traders, I want to enquire about your products.");
+    window.open(`https://wa.me/${owner}?text=${text}`, "_blank");
+    setTimeout(()=>{window.open(`https://wa.me/${manager}?text=${text}`, "_blank");},500);
+}
+
+function sendEnquiryToBothWhatsApp(){
+    const owner = "7002337201";
+    const manager = "6901596956";
+    const nameEl = document.getElementById('name') || document.querySelector('input[name="name"]');
+    const phoneEl = document.getElementById('phone') || document.querySelector('input[name="phone"]');
+    const categoryEl = document.getElementById('category') || document.querySelector('select[name="category"]');
+    const messageEl = document.getElementById('message') || document.querySelector('textarea[name="message"]');
+
+    const name = nameEl ? nameEl.value : '';
+    const phone = phoneEl ? phoneEl.value : '';
+    const category = categoryEl ? categoryEl.value : '';
+    const message = messageEl ? messageEl.value : '';
+
+    const finalMessage = encodeURIComponent(`New Enquiry From Website:\n\nName: ${name}\nPhone: ${phone}\nCategory: ${category}\nMessage: ${message}`);
+
+    window.open(`https://wa.me/${owner}?text=${finalMessage}`, "_blank");
+    setTimeout(()=>{window.open(`https://wa.me/${manager}?text=${finalMessage}`, "_blank");},500);
+}
+</script>
